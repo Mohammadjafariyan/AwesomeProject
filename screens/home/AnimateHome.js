@@ -79,7 +79,7 @@ export default class AnimateHome extends Component {
                 }
 
                 {!this.state.showIntroImage &&
-                <HomeScreen/>
+                <HomeScreen navigation={this.props.navigation}/>
                 }
             </LinearGradient>
         );
