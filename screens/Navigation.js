@@ -6,6 +6,8 @@ import {View} from "react-native-animatable";
 import { fromLeft, zoomIn, zoomOut } from 'react-navigation-transitions'
 import ScreenA from "./ScreenA/ScreenA";
 import HomeScreen from "./home/HomeScreen";
+import IndustryDetailScreen from "./ScreenC/IndustrialParkDetailScreen";
+import IndustrialParksScreen from "./ScreenB/IndustrialParksScreen";
 
 const handleCustomTransition = ({ scenes }) => {
     const prevScene = scenes[scenes.length - 2];
@@ -36,9 +38,8 @@ class AppStartScreen extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1  }}   >
                 <AnimateHome navigation={this.props.navigation}/>
-            </View>
+            
         );
     }
 }
@@ -48,13 +49,16 @@ const AppNavigator = createStackNavigator(
         StartScreen: AppStartScreen,
         AnimateHomeScreen: AnimateHome,
         HomeScreen: HomeScreen,
-        ScreenA:ScreenA
+        ScreenA:ScreenA,
+        IndustryDetailScreen:IndustryDetailScreen,
+        IndustrialParksScreen:IndustrialParksScreen,
     },
     {
         initialRouteName: "StartScreen",
-        transitionConfig: (nav) => handleCustomTransition(nav)
     }
 );
 
 
 export default createAppContainer(AppNavigator);
+
+//        transitionConfig: (nav) => handleCustomTransition(nav)
