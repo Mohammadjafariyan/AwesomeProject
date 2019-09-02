@@ -13,25 +13,8 @@ export default class AnimateHome extends Component {
             showIntroImage: true,
             fadeoutIntroImage: new Animated.Value(1)
         };
-        this.styles = StyleSheet.create({
-            container: {
-                flex: 1,
-                backgroundColor: '#',
-                backgroundImage: 'linear-gradient(to right top, #1bdcdc, #00bef4, #009bff, #006eff, #3812eb)',
-                alignItems: 'center',
-                justifyContent: 'center',
-            },
-            image: {
-                flex: 1,
-                // remove width and height to override fixed static size
-                width: null,
-                height: null,
-                resizeMode: 'cover', // or 'stretch'
-                alignSelf: 'stretch',
-                opacity: this.state.fadeoutIntroImage
 
-            }
-        })
+       
 
     }
 
@@ -41,9 +24,9 @@ export default class AnimateHome extends Component {
 
              this.setState({showIntroImage:false});
 
+  
 
-
-         },1800);*/
+         },1800);*/ 
         Animated.timing(                  // Animate over time
             this.state.fadeoutIntroImage,            // The animated value to drive
             {
@@ -52,7 +35,25 @@ export default class AnimateHome extends Component {
             }
         ).start(()=>{
             this.setState({showIntroImage:false})
+            this.styles = StyleSheet.create({
+                container: {
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                },
+                image: { 
+                    flex: 1,
+                    // remove width and height to override fixed static size
+                    width: null,
+                    height: null,
+                    resizeMode: 'cover', // or 'stretch'
+                    alignSelf: 'stretch', 
+    
+                }
+            })
         });
+
+        
     }
 
     componentWillUnmount() {
@@ -62,17 +63,19 @@ export default class AnimateHome extends Component {
 
 
     render() {
-
+             
+        let {fadeoutIntroImage} =this.state;
 
         return (
 
             <LinearGradient
                 colors={['#384dff', '#1BDCDC']}
-                style={{width: '100%', height: '100%'}}>
+                style={{flex:1,justifyContent:'center', height: '100%'}}>
 
                 {this.state.showIntroImage &&
                 <Animated.Image
-                    style={this.styles.image}
+                    style={{...this.props.style , opacity:fadeoutIntroImage
+                    ,resizeMode:'cover',flex:1}} 
                     source={require('../../assets/images/barreirofreddy_tv_machine2.gif')}
                 >
                 </Animated.Image>
@@ -83,6 +86,6 @@ export default class AnimateHome extends Component {
                 }
             </LinearGradient>
         );
-    }
+    } 
 }
 ;

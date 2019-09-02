@@ -55,6 +55,7 @@ const AppNavigator = createStackNavigator(
     },
     {
         initialRouteName: "StartScreen",
+        transitionConfig:handleCustomTransition
     }
 );
 
