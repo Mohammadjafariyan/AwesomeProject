@@ -21,10 +21,33 @@ export default class IndustrialParksScreen extends React.Component {
         this.state={
             toggleSliderAnimate:new Animated.Value(1),
             toggleOtherItems:new Animated.Value(1),
-            
-
+            isOnItemVisible:false,
+            selectedItem:null
         }
     }
+    animated_styles = StyleSheet.create({
+        listItem: {
+            height: 50,
+            backgroundColor: "#fcfcfc",
+            borderTopRightRadius: 10,
+            borderTopLeftRadius: 10,
+            borderBottomRightRadius: 10,
+            borderBottomLeftRadius: 10,
+            margin: 10,
+            alignItems: "center",
+            flexDirection: 'row-reverse',
+            marginRight: 5,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 1
+            },
+            shadowOpacity: 0.27,
+            shadowRadius: 4.65,
+            elevation: 3,
+
+        }
+    });
 
     tabs = [
         {
@@ -52,7 +75,25 @@ export default class IndustrialParksScreen extends React.Component {
     goSanatScreen() {
         this.props.navigation.navigate('IndustrialParksScreen')
     }
+    itemSelected(item,i){
 
+        Animated.timing(                  // Animate over time
+            this.state.toggleSliderAnimate,            // The animated value to drive
+            {
+                toValue: 0,                   // Animate to opacity: 1 (opaque)
+                duration: 1000,
+            }
+        ).start();
+
+        Animated.timing(                  // Animate over time
+            this.state.toggleOtherItems,            // The animated value to drive
+            {
+                toValue: 0,                   // Animate to opacity: 1 (opaque)
+                duration: 1000,
+            }
+        ).start();
+
+    }
 
     render() {
         this.arr = [
@@ -73,8 +114,11 @@ export default class IndustrialParksScreen extends React.Component {
         const items = this.arr.map((a, i) => {
             return (
 
-                <TouchableOpacity key={i}>
-                    <Animated.View style={styles.listItem} key={i}>
+                <TouchableOpacity onPress={()=>this.itemSelected(a,i)} key={i}>
+                    <Animated.View  style={[...this.props.style,
+                        this.animated_styles.listItem,
+                        {opacity:a==this.state.selectedItem ? 1 : this.state.toggleOtherItems }]} key={i}>
+
                         <Icon name='alarm' color={'#C6C6C6'}/>
                         <Text>{a}</Text>
                     </Animated.View>
@@ -88,7 +132,7 @@ export default class IndustrialParksScreen extends React.Component {
                 }}
             >
                 <View style={{flex: 1}}>
-                    <View style={styles.carousel}>
+                    <View style={[styles.carousel,{opacity: this.state.toggleSliderAnimate}]}>
                         <MyCarousel/>
                     </View>
                     <View style={styles.listbody}>

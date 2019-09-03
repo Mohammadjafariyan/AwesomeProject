@@ -6,7 +6,7 @@ import Easing from "react-native-web/dist/vendor/react-native/Animated/Easing";
 import HomeScreen from "./HomeScreen";
 
 
-export default class AnimateHome extends Component {
+export default class stylAnimateHome extends Component {
     constructor() {
         super();
         this.state = {
