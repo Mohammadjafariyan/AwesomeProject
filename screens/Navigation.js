@@ -50,16 +50,16 @@ const AppNavigator = createStackNavigator(
         StartScreen: AppStartScreen,
         AnimateHomeScreen: AnimateHome,
         HomeScreen: HomeScreen,
-<<<<<<< Updated upstream
+
         ScreenA:ScreenA,
         IndustryDetailScreen:IndustryDetailScreen,
         IndustrialParksScreen:IndustrialParksScreen,
-=======
+
         ScreenA: ScreenA,
         IndustryDetailScreen: IndustryDetailScreen,
         IndustrialParksScreen: IndustrialParksScreen,
         SearchScreen: SearchScreen,
->>>>>>> Stashed changes
+
     },
     {
         initialRouteName: "StartScreen",

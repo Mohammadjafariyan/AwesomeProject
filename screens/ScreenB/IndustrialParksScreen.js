@@ -2,14 +2,14 @@
 import React from "react";
 import {Text, View} from "react-native-animatable";
 import AnimateHome from "../home/AnimateHome";
-<<<<<<< Updated upstream
+
 
 
 
 export default class IndustrialParksScreen extends React.Component {
 
     rendermine(){
-=======
+
 import {Dimensions, Animated, StyleSheet, ScrollView, Image, TouchableOpacity, BackHandler} from "react-native";
 import {Avatar, Icon} from "react-native-elements";
 import NavigationBar, {EveryNavigationBar} from "../components/Navigation";
@@ -180,11 +180,11 @@ export default class IndustrialParksScreen extends React.Component {
             pressColor: 'rgba(255,255,255,0.16)'
         }
     ]
->>>>>>> Stashed changes
+
 
     }
 
-<<<<<<< Updated upstream
+
     render() {
         return (
             <View style={{ flex: 1}}   >
@@ -193,7 +193,7 @@ export default class IndustrialParksScreen extends React.Component {
         );
     }
 }
-=======
+
     itemSelected(item, i) {
         //console.error('toggle');
         this.setState({selectedItem: item});
@@ -441,4 +441,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#f52a8f',
     }
 });
->>>>>>> Stashed changes
+
