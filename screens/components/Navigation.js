@@ -11,7 +11,7 @@ const styles = {
 import BottomNavigation, {
     FullTab
   } from 'react-native-material-bottom-navigation'
-import { Icon } from 'react-native-elements';
+import {Button, Icon} from 'react-native-elements';
    
   export default class NavigationBar extends React.Component {
    
@@ -39,4 +39,23 @@ import { Icon } from 'react-native-elements';
           />
       )
     }
+  }
+
+  export class EveryNavigationBar extends React.Component{
+      render() {
+          return(
+              <View>
+                  <Button
+                      onPress={()=>this.props.navigation.navigate('SearchScreen')}
+                      icon={{
+                          name: "search",
+                          size: 20,
+                          color: "#d1d1d1"
+                      }}
+                      type='clear'
+                  />
+              </View>
+
+          );
+      }
   }

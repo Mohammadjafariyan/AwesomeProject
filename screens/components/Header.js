@@ -54,7 +54,7 @@ export default class Header extends React.Component {
 //     });
 
 
-//   const  imgs=[ set REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.69
+//   const  imgs=[ set REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.6 9
 //     require('../../assets/images/homeSliderImages/b.33817-8603_factory_futura_park.jpg')
 //   ];
   

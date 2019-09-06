@@ -1,11 +1,19 @@
 import React from "react";
-import { Text, View } from "react-native-animatable";
+import { Text } from "react-native-animatable";
 import AnimateHome from "../home/AnimateHome";
 import { Dimensions } from "react-native";
 import StyleSheet from "react-native-web/dist/exports/StyleSheet";
+<<<<<<< Updated upstream
 import { Avatar } from "react-native-elements";
 import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
 import NavigationBar from "../components/Navigation";
+=======
+import {Avatar, Button} from "react-native-elements";
+import { TouchableHighlight, TouchableOpacity ,View ,TextInput} from "react-native";
+import NavigationBar, {EveryNavigationBar} from "../components/Navigation";
+import { Card } from "../components/Screencards";
+
+>>>>>>> Stashed changes
 
 const cardWidth = Dimensions.get("window").width / 3;
 const cardshapeWidth = (2 * cardWidth) / 3;
@@ -88,8 +96,14 @@ class EightPointBurst extends React.Component {
 export default class ScreenA extends React.Component {
   rendermine() {}
 
+    static navigationOptions =(props) => ( {
+        headerRight: (
+            <EveryNavigationBar  navigation={props.navigation}/>
+        ),
+    });
 
-  tabs=[
+
+    tabs=[
     {
       key:'games',
       icon:'movie',
@@ -102,6 +116,10 @@ export default class ScreenA extends React.Component {
   goSanatScreen(){
     this.props.navigation.navigate('IndustrialParksScreen')
   }
+    goSanatDetailScreen(){
+        this.props.navigation.navigate('IndustryDetailScreen')
+
+    }
 
   render() {
     return (
@@ -112,8 +130,14 @@ export default class ScreenA extends React.Component {
       >
         <View style={styles.cards}>
           <View style={styles.card}>
+<<<<<<< Updated upstream
             <TouchableOpacity  onPress={this.goSanatScreen}>
               <EightPointBurst bgcolor={styles.color1} icon="home" />
+=======
+            <TouchableOpacity  onPress={()=>this.goSanatDetailScreen()}>
+              <Card bgcolor='#96f52a' title='کارگاه ها' desc="در این مکان توضیحاتی در باره این قسمت داده می شود"
+                    icon="keyboard" />
+>>>>>>> Stashed changes
             </TouchableOpacity>
           </View>
           <View style={styles.card}>

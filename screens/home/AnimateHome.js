@@ -1,10 +1,25 @@
-import {StyleSheet, Text, View, Animated} from "react-native";
+import {StyleSheet, Text, View, Animated,TouchableOpacity} from "react-native";
 import React, {Component} from 'react';
 import {LinearGradient} from 'expo-linear-gradient';
 import Image from "react-native-web/dist/exports/Image";
 import Easing from "react-native-web/dist/vendor/react-native/Animated/Easing";
 import HomeScreen from "./HomeScreen";
+import {getRandom} from "../components/shared";
 
+export const gifs=[
+        require('../../assets/images/barreirofreddy_tv_machine2.gif'),
+        require('../../assets/images/homeSliderImages/anim_airplane.gif'),
+        require('../../assets/images/homeSliderImages/anim_barq.gif'),
+        require('../../assets/images/homeSliderImages/anim_builb.gif'),
+        require('../../assets/images/homeSliderImages/anim_car.gif'),
+        require('../../assets/images/homeSliderImages/anim_cirle_load.gif'),
+        require('../../assets/images/homeSliderImages/anim_cloud_walk.gif'),
+        require('../../assets/images/homeSliderImages/anim_hobab.gif'),
+        require('../../assets/images/homeSliderImages/anim_hobab2.gif'),
+        require('../../assets/images/homeSliderImages/anim_loading_normal.gif'),
+        require('../../assets/images/homeSliderImages/anim_mostatil.gif'),
+        require('../../assets/images/homeSliderImages/anim_many_icon.gif'),
+    ]
 
 export default class AnimateHome extends Component {
     constructor() {
@@ -17,6 +32,7 @@ export default class AnimateHome extends Component {
        
 
     }
+
 
 
     componentDidMount() {
@@ -56,27 +72,30 @@ export default class AnimateHome extends Component {
         
     }
 
-    componentWillUnmount() {
-        //  this.clearInterval(this.state.showIntroImage);
-    }
+
 
 
 
     render() {
+
+        const gif= gifs[getRandom(0,gifs.length)];
+
              
         let {fadeoutIntroImage} =this.state;
 
         return (
 
+
             <LinearGradient
-                colors={['#384dff', '#1BDCDC']}
-                style={{flex:1,justifyContent:'center', height: '100%'}}>
+                colors={['#1BDCDC','#4659DF','#4659DF']}
+                style={{flex:1,alignItems:'center' ,justifyContent:'center', height: '100%'}}>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('ScreenA')}}>
 
                 {this.state.showIntroImage &&
                 <Animated.Image
                     style={{...this.props.style , opacity:fadeoutIntroImage
-                    ,resizeMode:'cover',flex:1}} 
-                    source={require('../../assets/images/barreirofreddy_tv_machine2.gif')}
+                    ,resizeMode:'contain',flex:1}}
+                    source={gif}
                 >
                 </Animated.Image>
                 }
@@ -84,6 +103,7 @@ export default class AnimateHome extends Component {
                 {!this.state.showIntroImage &&
                 <HomeScreen navigation={this.props.navigation}/>
                 }
+                </TouchableOpacity>
             </LinearGradient>
         );
     } 
