@@ -3,7 +3,7 @@ import {View} from "react-native";
 import * as Animatable from 'react-native-animatable';
 import {Avatar, Button, Icon} from "react-native-elements";
 
-var Spinner = require('react-spinkit');
+//var Spinner = require('react-spinkit');
 
 
 export default class HomeScreen extends Component {
@@ -33,7 +33,7 @@ export default class HomeScreen extends Component {
 
                 <View style={{
                     flex: 1,
-                    flexDirection: 'center',
+                    flexDirection: 'row',
                     alignItems: 'center',
                 }}>
                     <Button
@@ -41,7 +41,7 @@ export default class HomeScreen extends Component {
                         onPress={() => {
                             this.navigate()
                         }}
-                        raised="true"
+                        raised={true}
                         type="outline"
                         title="شروع برنامه"
                     />
@@ -54,7 +54,7 @@ export default class HomeScreen extends Component {
                    <Animatable.Text animation="slideInDown" iterationCount="infinite" direction="alternate"
                                      style={{ color: 'white'}}>جهت شروع برنامه لمس نمایید</Animatable.Text>
 
-                    <Spinner color="white" name="ball-scale-multiple"/>
+                    {/* <Spinner color="white" name="ball-scale-multiple"/> */}
 
 
                 </View>
