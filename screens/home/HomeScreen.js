@@ -1,10 +1,20 @@
 import React, {Component} from 'react';
-import {View} from "react-native";
+import {Animated, View,Image} from "react-native";
 import * as Animatable from 'react-native-animatable';
 import {Avatar, Button, Icon} from "react-native-elements";
+import {getRandom} from "../components/shared";
 
-var Spinner = require('react-spinkit');
+//var Spinner = require('react-spinkit');
 
+const Homegifs=[
+    require('../../assets/images/homeSliderImages/anim_airplane.gif'),
+    require('../../assets/images/homeSliderImages/anim_builb.gif'),
+    require('../../assets/images/homeSliderImages/anim_car.gif'),
+    require('../../assets/images/homeSliderImages/anim_cirle_load.gif'),
+    require('../../assets/images/homeSliderImages/anim_hobab.gif'),
+    require('../../assets/images/homeSliderImages/anim_hobab2.gif'),
+    require('../../assets/images/homeSliderImages/anim_many_icon.gif'),
+]
 
 export default class HomeScreen extends Component {
 
@@ -13,6 +23,10 @@ export default class HomeScreen extends Component {
     }
 
     render() {
+
+        const leng=Homegifs.length;
+        const gif=  require('../../assets/images/homeSliderImages/anim_many_icon.gif');
+
         return (
             <View style={{
                 flex: 1,
@@ -33,7 +47,7 @@ export default class HomeScreen extends Component {
 
                 <View style={{
                     flex: 1,
-                    flexDirection: 'center',
+                    flexDirection: 'row',
                     alignItems: 'center',
                 }}>
                     <Button
@@ -41,7 +55,7 @@ export default class HomeScreen extends Component {
                         onPress={() => {
                             this.navigate()
                         }}
-                        raised="true"
+                        raised={true}
                         type="outline"
                         title="شروع برنامه"
                     />
@@ -54,7 +68,13 @@ export default class HomeScreen extends Component {
                    <Animatable.Text animation="slideInDown" iterationCount="infinite" direction="alternate"
                                      style={{ color: 'white'}}>جهت شروع برنامه لمس نمایید</Animatable.Text>
 
-                    <Spinner color="white" name="ball-scale-multiple"/>
+                    <Image
+                        style={{...this.props.style ,resizeMode:'contain',
+                            opacity:0.5,flex:1}}
+                        source={gif}
+                    >
+                    </Image>
+                    {/* <Spinner color="white" name="ball-scale-multiple"/> */}
 
 
                 </View>

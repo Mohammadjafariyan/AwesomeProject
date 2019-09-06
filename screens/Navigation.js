@@ -8,6 +8,7 @@ import ScreenA from "./ScreenA/ScreenA";
 import HomeScreen from "./home/HomeScreen";
 import IndustryDetailScreen from "./ScreenC/IndustrialParkDetailScreen";
 import IndustrialParksScreen from "./ScreenB/IndustrialParksScreen";
+import {SearchScreen} from "./Search/SearchScreen";
 
 const handleCustomTransition = ({ scenes }) => {
     const prevScene = scenes[scenes.length - 2];
@@ -49,12 +50,20 @@ const AppNavigator = createStackNavigator(
         StartScreen: AppStartScreen,
         AnimateHomeScreen: AnimateHome,
         HomeScreen: HomeScreen,
+
         ScreenA:ScreenA,
         IndustryDetailScreen:IndustryDetailScreen,
         IndustrialParksScreen:IndustrialParksScreen,
+
+        ScreenA: ScreenA,
+        IndustryDetailScreen: IndustryDetailScreen,
+        IndustrialParksScreen: IndustrialParksScreen,
+        SearchScreen: SearchScreen,
+
     },
     {
         initialRouteName: "StartScreen",
+        transitionConfig:handleCustomTransition
     }
 );
 
